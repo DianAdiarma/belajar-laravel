@@ -29,7 +29,7 @@
       @foreach ($lecturers as $key=> $lecturer)
           
     <tr>
-      <th scope="row">{{$key +1}}</th> //untuk penomoran
+      <th scope="row">{{$key +1}}</th> //untuk penomoran dalam tampilan index
       <td>{{ $lecturer->nidn}}</td>
       <td>{{ $lecturer->name}}</td>
       <td>{{ $lecturer->address}}</td>
