@@ -24,6 +24,8 @@ class LecturerController extends Controller
     public function store(Request $request)
     {
         Lecturer::create($request-> all());
+        return redirect()->route('index-lecturer')->with('status', 'Sukses Insert Data');
         //dd() //untuk mengecek data apakah ada atau tidak
+
     }
 }

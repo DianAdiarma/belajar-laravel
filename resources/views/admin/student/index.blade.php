@@ -13,11 +13,11 @@
    
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    
-    <title>Tabel Dosen</title>
+    <title>Tabel Mahasiswa</title>
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-5">TABEL DOSEN</h1>
+        <h1 class="mt-5">TABEL MAHASISWA</h1>
         @if(session('status'))
        <script>
            Swal.fire({
@@ -31,21 +31,21 @@
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Nidn</th>
+      <th scope="col">Nim</th>
       <th scope="col">Nama</th>
-      <th scope="col">Alamat</th>
+      <th scope="col">Jurusan</th>
       <th scope="col">No Hp</th>
     </tr>
   </thead>
   <tbody>
-      @foreach ($lecturers as $key=> $lecturer)
+      @foreach ($students as $key=> $student)
           
     <tr>
       <th scope="row">{{$key +1}}</th> 
-      <td>{{ $lecturer->nidn}}</td>
-      <td>{{ $lecturer->name}}</td>
-      <td>{{ $lecturer->address}}</td>
-      <td>{{ $lecturer->phone}}</td>
+      <td>{{ $student->nim}}</td>
+      <td>{{ $student->name}}</td>
+      <td>{{ $student->major}}</td>
+      <td>{{ $student->phone}}</td>
     </tr>
      @endforeach
   </tbody>
