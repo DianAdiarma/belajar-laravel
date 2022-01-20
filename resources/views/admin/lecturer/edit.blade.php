@@ -15,30 +15,31 @@
 </head>
 <body>
     <div class="container">
-      <h1 class="mt-5">TAMBAH DOSEN</h1>
-        <form action="{{route('store-lecturer')}}" method="POST">
+      <h1 class="mt-5">EDIT DOSEN</h1>
+        <form action="{{route(('update-lecturer'),$lecturer->id)}}" method="POST">
           @csrf
+          @method('PUT')
             <div class="form-group">
               <label for="exampleInputnidn">Nidn</label>
-              <input type="text" name="nidn"class="form-control" id="exampleInputnidn" placeholder="enter your nidn">
+              <input value="{{$lecturer->nidn}}" type="text" name="nidn"class="form-control" id="exampleInputnidn" placeholder="enter your nidn">
               
             </div>
             <div class="form-group">
               <label for="exampleInputname">Name</label>
-              <input type="text" name="name" class="form-control" id="exampleInputname" placeholder="enter your name">
+              <input value="{{$lecturer->name}}" type="text" name="name" class="form-control" id="exampleInputname" placeholder="enter your name">
             </div>
 
             <div class="form-group">
               <label for="exampleInputaddress">Address</label>
-              <input type="text" name="address" class="form-control" id="exampleInputaddress" placeholder="enter your Address">
+              <input value="{{$lecturer->address}}" type="text" name="address" class="form-control" id="exampleInputaddress" placeholder="enter your Address">
             </div>
 
             <div class="form-group">
               <label for="exampleInputphone">Phone</label>
-              <input type="text" name="phone" class="form-control" id="exampleInputphone" placeholder="enter your Phone">
+              <input value="{{$lecturer->phone}}" type="text" name="phone" class="form-control" id="exampleInputphone" placeholder="enter your Phone">
             </div>
            
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">Update</button>
           </form>
     </div>
 </body>

@@ -30,11 +30,12 @@
         <table class="table mt-3">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <th scope="col">No</th>
       <th scope="col">Nidn</th>
       <th scope="col">Nama</th>
       <th scope="col">Alamat</th>
       <th scope="col">No Hp</th>
+       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
@@ -46,6 +47,16 @@
       <td>{{ $lecturer->name}}</td>
       <td>{{ $lecturer->address}}</td>
       <td>{{ $lecturer->phone}}</td>
+      <td>
+        <a class="btn btn-primary"  href="{{route('edit-lecturer', $lecturer->id)}}" >
+          Edit
+        </a>
+       <form  action="{{route('delete-lecturer',$lecturer->id)}}" method="post" class="form-check-inline">
+              @csrf
+              @method('DELETE')
+              <button onclick="return confirm('Yakin Hapus Data Ini?')" class="btn btn-danger" type="submit "><i class="fas fa-trash"></i> Hapus</button>
+        </form>
+      </td>
     </tr>
      @endforeach
   </tbody>

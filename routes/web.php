@@ -20,9 +20,13 @@ use Illuminate\Support\Facades\Route;
 // });
 
 //Route Lecturer
+route::get('lecturer/edit/{id}', [LecturerController::class, 'edit'])->name('edit-lecturer');
 route::get('lecturer/index', [LecturerController::class, 'index'])->name('index-lecturer');
 route::get('/lecturer/create', [LecturerController::class, 'create']);
 route::post('lecturer/store', [LecturerController::class, 'store'])->name("store-lecturer");
+route::put('lecturer/update/{id}', [LecturerController::class, 'update'])->name("update-lecturer");
+route::delete('lecturer/delete/{id}', [LecturerController::class, 'delete'])->name("delete-lecturer");
+
 
 //Route Student
 route::get('student/index', [StudentController::class, 'index'])->name('index-student');
