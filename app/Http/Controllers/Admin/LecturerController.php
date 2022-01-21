@@ -21,11 +21,11 @@ class LecturerController extends Controller
         $lecturers = Lecturer::all(); //untuk select data di database 
         //return response()->json($lecturers); //untuk memastikan data di database
         return view('admin.lecturer.index', compact('lecturers'));
-
     }
     public function create()
     {
         return view('admin.lecturer.create');
+        
     }
 
     public function store(Request $request)

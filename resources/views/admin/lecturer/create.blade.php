@@ -39,6 +39,9 @@
             </div>
            
             <button type="submit" class="btn btn-primary">Create</button>
+             <a class="btn btn-primary"  href="{{route('index-lecturer')}}" >
+          Kembali
+        </a>
           </form>
     </div>
 </body>

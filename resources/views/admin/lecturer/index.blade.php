@@ -27,7 +27,7 @@
                 })
        </script>
         @endif
-        <table class="table mt-3">
+        <table class="table mt-3 ">
   <thead>
     <tr>
       <th scope="col">No</th>
@@ -61,6 +61,9 @@
      @endforeach
   </tbody>
 </table>
+<a class="btn btn-primary"  href="{{route('create-lecturer')}}" >
+          Tambah Data
+        </a>
     </div>
     
 </body>
