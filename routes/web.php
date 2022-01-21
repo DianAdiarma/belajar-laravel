@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('backend.master');
+});
 
 //Route Lecturer
 route::get('lecturer/edit/{id}', [LecturerController::class, 'edit'])->name('edit-lecturer');
