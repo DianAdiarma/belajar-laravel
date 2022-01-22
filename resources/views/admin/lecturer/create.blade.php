@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -45,4 +45,41 @@
           </form>
     </div>
 </body>
-</html>
+</html> --}}
+
+@extends('backend.master')
+
+@section('content')
+<div class="card border">
+  <div class="card-body">
+      <h1>TAMBAH DOSEN</h1>
+        <form action="{{route('store-lecturer')}}" method="POST">
+          @csrf
+            <div class="form-group">
+              <label for="exampleInputnidn">Nidn</label>
+              <input type="text" name="nidn"class="form-control" id="exampleInputnidn" placeholder="enter your nidn">
+              
+            </div>
+            <div class="form-group">
+              <label for="exampleInputname">Name</label>
+              <input type="text" name="name" class="form-control" id="exampleInputname" placeholder="enter your name">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputaddress">Address</label>
+              <input type="text" name="address" class="form-control" id="exampleInputaddress" placeholder="enter your Address">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputphone">Phone</label>
+              <input type="text" name="phone" class="form-control" id="exampleInputphone" placeholder="enter your Phone">
+            </div>
+           
+            <button type="submit" class="btn btn-primary">Create</button>
+             <a class="btn btn-primary"  href="{{route('index-lecturer')}}" >
+          Kembali
+        </a>
+        </form>
+  </div>
+</div>
+@endsection

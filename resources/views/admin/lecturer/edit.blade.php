@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -43,4 +43,39 @@
           </form>
     </div>
 </body>
-</html>
+</html> --}}
+
+@extends('backend.master')
+
+@section('content')
+<div class="card border">
+  <div class="card-body">
+      <h1>EDIT DOSEN</h1>
+        <form action="{{route(('update-lecturer'),$lecturer->id)}}" method="POST">
+          @csrf
+          @method('PUT')
+            <div class="form-group">
+              <label for="exampleInputnidn">Nidn</label>
+              <input value="{{$lecturer->nidn}}" type="text" name="nidn"class="form-control" id="exampleInputnidn" placeholder="enter your nidn">
+              
+            </div>
+            <div class="form-group">
+              <label for="exampleInputname">Name</label>
+              <input value="{{$lecturer->name}}" type="text" name="name" class="form-control" id="exampleInputname" placeholder="enter your name">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputaddress">Address</label>
+              <input value="{{$lecturer->address}}" type="text" name="address" class="form-control" id="exampleInputaddress" placeholder="enter your Address">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputphone">Phone</label>
+              <input value="{{$lecturer->phone}}" type="text" name="phone" class="form-control" id="exampleInputphone" placeholder="enter your Phone">
+            </div>
+           
+            <button type="submit" class="btn btn-primary">Update</button>
+          </form>
+  </div>
+</div>
+@endsection

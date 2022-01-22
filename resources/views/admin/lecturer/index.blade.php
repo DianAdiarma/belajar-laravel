@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -67,4 +67,60 @@
     </div>
     
 </body>
-</html>
+</html> --}}
+
+@extends('backend.master')
+
+@section('content')
+ @if(session('status'))
+       <script>
+           Swal.fire({
+               icon: 'success',
+               text: "{{session('status')}}",
+               title: 'Sukses',
+                })
+       </script>
+        @endif
+  <div class="card border">
+  <div class="card-body">
+        <a class="btn btn-primary"  href="{{route('create-lecturer')}}" >
+          Tambah Data
+        </a>
+        <table class="table mt-3 ">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Nidn</th>
+      <th scope="col">Nama</th>
+      <th scope="col">Alamat</th>
+      <th scope="col">No Hp</th>
+       <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach ($lecturers as $key=> $lecturer)
+          
+    <tr>
+      <th scope="row">{{$key +1}}</th> 
+      <td>{{ $lecturer->nidn}}</td>
+      <td>{{ $lecturer->name}}</td>
+      <td>{{ $lecturer->address}}</td>
+      <td>{{ $lecturer->phone}}</td>
+      <td>
+        <a class="btn btn-primary"  href="{{route('edit-lecturer', $lecturer->id)}}" ><i class="fas fa-edit"></i>
+          Edit
+        </a>
+       <form  action="{{route('delete-lecturer',$lecturer->id)}}" method="post" class="form-check-inline">
+              @csrf
+              @method('DELETE')
+              <button onclick="return confirm('Yakin Hapus Data Ini?')" class="btn btn-danger" type="submit "><i class="fas fa-trash"></i> Hapus</button>
+        </form>
+      </td>
+    </tr>
+     @endforeach
+  </tbody>
+</table>
+  </div>
+  </div>
+    
+@endsection
