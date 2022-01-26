@@ -43,7 +43,7 @@ class LecturerController extends Controller
         return redirect()->route('index-lecturer')->with('status', 'Sukses Edit Data');
     }
      
-    public function delete(Request $request, $id)
+    public function delete($id)
     {
         $lecturer = Lecturer::where('id', $id)->first();
         $lecturer->delete();

@@ -13,11 +13,11 @@
    
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
    
-    <title>Tabel Mahasiswa</title>
+    <title>Tabel Dosen</title>
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-5">TABEL MAHASISWA</h1>
+        <h1 class="mt-5">TABEL DOSEN</h1>
         @if(session('status'))
        <script>
            Swal.fire({
@@ -27,42 +27,43 @@
                 })
        </script>
         @endif
-        <table class="table mt-3">
+        <table class="table mt-3 ">
   <thead>
     <tr>
       <th scope="col">No</th>
-      <th scope="col">Nim</th>
+      <th scope="col">Nidn</th>
       <th scope="col">Nama</th>
-      <th scope="col">Jurusan</th>
+      <th scope="col">Alamat</th>
       <th scope="col">No Hp</th>
-      <th scope="col">Action</th>
+       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
-      @foreach ($students as $key=> $student)
+      @foreach ($lecturers as $key=> $lecturer)
           
     <tr>
       <th scope="row">{{$key +1}}</th> 
-      <td>{{ $student->nim}}</td>
-      <td>{{ $student->name}}</td>
-      <td>{{ $student->major}}</td>
-      <td>{{ $student->phone}}</td>
+      <td>{{ $lecturer->nidn}}</td>
+      <td>{{ $lecturer->name}}</td>
+      <td>{{ $lecturer->address}}</td>
+      <td>{{ $lecturer->phone}}</td>
       <td>
-        <a class="btn btn-primary"  href="{{route('edit-student', $student->id)}}" ><i class="fas fa-edit"></i>
+        <a class="btn btn-primary"  href="{{route('edit-lecturer', $lecturer->id)}}" >
           Edit
         </a>
-         <form  action="{{route('delete-student',$student->id)}}" method="post" class="form-check-inline">
+       <form  action="{{route('delete-lecturer',$lecturer->id)}}" method="post" class="form-check-inline">
               @csrf
               @method('DELETE')
               <button onclick="return confirm('Yakin Hapus Data Ini?')" class="btn btn-danger" type="submit "><i class="fas fa-trash"></i> Hapus</button>
-        </form> 
-      </td>
-    </tr>
+        </form>
       </td>
     </tr>
      @endforeach
   </tbody>
 </table>
+<a class="btn btn-primary"  href="{{route('create-lecturer')}}" >
+          Tambah Data
+        </a>
     </div>
     
 </body>
@@ -70,7 +71,6 @@
 
 @extends('backend.master')
 
-@section('content')
 @section('content')
  @if(session('status'))
        <script>
@@ -81,45 +81,44 @@
                 })
        </script>
         @endif
- <div class="card border">
+  <div class="card border">
   <div class="card-body">
-        <a class="btn btn-primary"  href="{{route('create-student')}}" >
+        <a class="btn btn-primary"  href="{{route('create-subject')}}" >
           Tambah Data
         </a>
-    <table class="table mt-3">
+        <table class="table mt-3 ">
   <thead>
     <tr>
       <th scope="col">No</th>
-      <th scope="col">Nim</th>
-      <th scope="col">Nama</th>
-      <th scope="col">Jurusan</th>
-      <th scope="col">No Hp</th>
-      <th scope="col">Action</th>
+      <th scope="col">Kode Mata Kuliah</th>
+      <th scope="col">Nama Mata Kuliah</th>
+      <th scope="col">Nama Dosen</th>
+       <th scope="col">Action</th>
     </tr>
   </thead>
   <tbody>
-      @foreach ($students as $key=> $student)
+      @foreach ($subjects as $key=> $subject)
           
     <tr>
       <th scope="row">{{$key +1}}</th> 
-      <td>{{ $student->nim}}</td>
-      <td>{{ $student->name}}</td>
-      <td>{{ $student->major}}</td>
-      <td>{{ $student->phone}}</td>
+      <td>{{ $subject->code}}</td>
+      <td>{{ $subject->name}}</td>
+      <td>{{ $subject->lecturer->name}}</td>
       <td>
-        <a class="btn btn-primary"  href="{{route('edit-student', $student->id)}}" ><i class="fas fa-edit"></i>
+        <a class="btn btn-primary"  href="" ><i class="fas fa-edit"></i>
           Edit
         </a>
-         <form  action="{{route('delete-student',$student->id)}}" method="post" class="form-check-inline">
+       <form  action="" method="post" class="form-check-inline">
               @csrf
               @method('DELETE')
               <button onclick="return confirm('Yakin Hapus Data Ini?')" class="btn btn-danger" type="submit "><i class="fas fa-trash"></i> Hapus</button>
-        </form> 
+        </form>
       </td>
     </tr>
      @endforeach
   </tbody>
 </table>
   </div>
- </div>
+  </div>
+    
 @endsection

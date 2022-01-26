@@ -15,29 +15,30 @@
 </head>
 <body>
     <div class="container">
-      <h1 class="mt-5">FORM MAHASISWA</h1>
-        <form action="{{route('store-student')}}" method="POST">
-          @csrf 
+      <h1 class="mt-5">EDIT MAHASISWA</h1>
+        <form action="{{route('update-student', $student->id)}}" method="POST">
+          @csrf
+          @method('PUT')
             <div class="form-group">
               <label for="exampleInputnidn">Nim</label>
-              <input type="text" name="nim"class="form-control" id="exampleInputnim" placeholder="enter your nim">
+              <input value="{{$student->nim}}" type="text" name="nim"class="form-control" id="exampleInputnim" placeholder="enter your nim">
               
             </div>
             <div class="form-group">
               <label for="exampleInputname">Name</label>
-              <input type="text" name="name" class="form-control" id="exampleInputname" placeholder="enter your name">
+              <input value="{{$student->name}}" type="text" name="name" class="form-control" id="exampleInputname" placeholder="enter your name">
             </div>
 
             <div class="form-group">
               <label for="exampleInputaddress">Major</label>
-              <input type="text" name="major" class="form-control" id="exampleInputmajor" placeholder="enter your Major">
+              <input value="{{$student->major}}" type="text" name="major" class="form-control" id="exampleInputmajor" placeholder="enter your Major">
             </div>
             <div class="form-group">
               <label for="exampleInputaddress">Phone</label>
-              <input type="text" name="phone" class="form-control" id="exampleInputphone" placeholder="enter your phone">
+              <input value="{{$student->phone}}" type="text" name="phone" class="form-control" id="exampleInputphone" placeholder="enter your phone">
             </div>
 
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">Edit</button>
           </form>
     </div>
 </body>
@@ -48,29 +49,30 @@
 @section('content')
 <div class="card border">
   <div class="card-body">
-    <h1>FORM MAHASISWA</h1>
-        <form action="{{route('store-student')}}" method="POST">
-          @csrf 
+    <h1>EDIT MAHASISWA</h1>
+        <form action="{{route('update-student', $student->id)}}" method="POST">
+          @csrf
+          @method('PUT')
             <div class="form-group">
               <label for="exampleInputnidn">Nim</label>
-              <input type="text" name="nim"class="form-control" id="exampleInputnim" placeholder="enter your nim">
+              <input value="{{$student->nim}}" type="text" name="nim"class="form-control" id="exampleInputnim" placeholder="enter your nim">
               
             </div>
             <div class="form-group">
               <label for="exampleInputname">Name</label>
-              <input type="text" name="name" class="form-control" id="exampleInputname" placeholder="enter your name">
+              <input value="{{$student->name}}" type="text" name="name" class="form-control" id="exampleInputname" placeholder="enter your name">
             </div>
 
             <div class="form-group">
               <label for="exampleInputaddress">Major</label>
-              <input type="text" name="major" class="form-control" id="exampleInputmajor" placeholder="enter your Major">
+              <input value="{{$student->major}}" type="text" name="major" class="form-control" id="exampleInputmajor" placeholder="enter your Major">
             </div>
             <div class="form-group">
               <label for="exampleInputaddress">Phone</label>
-              <input type="text" name="phone" class="form-control" id="exampleInputphone" placeholder="enter your phone">
+              <input value="{{$student->phone}}" type="text" name="phone" class="form-control" id="exampleInputphone" placeholder="enter your phone">
             </div>
 
-            <button type="submit" class="btn btn-primary">Create</button>
+            <button type="submit" class="btn btn-primary">Edit</button>
              <a class="btn btn-primary"  href="{{route('index-student')}}" >
           Kembali
         </a>

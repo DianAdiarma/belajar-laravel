@@ -5,7 +5,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">UNSULBAR</sup></div>
       </a>
 
       <!-- Divider -->
@@ -26,6 +26,12 @@
        <a class="btn btn-primary"  href="{{route('index-lecturer')}}" >
           <i class="fas fa-users"></i>
           <span>Dosen</span></a>
+      </li>
+
+      <li class="nav-item active">
+       <a class="btn btn-primary"  href="{{route('index-student')}}" >
+          <i class="fas fa-users"></i>
+          <span>Mahasiswa</span></a>
       </li>
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
