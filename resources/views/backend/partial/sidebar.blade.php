@@ -13,7 +13,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="{{route('index-dashboard')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -21,13 +21,16 @@
       <!-- Divider -->
       <hr class="sidebar-divider">
 
+      @if (Auth::user()->role == "dosen")
+          
+      
       <!-- Heading -->
       <li class="nav-item active">
        <a class="btn btn-primary"  href="{{route('index-lecturer')}}" >
           <i class="fas fa-users"></i>
           <span>Dosen</span></a>
       </li>
-
+      @endif
       <li class="nav-item active">
        <a class="btn btn-primary"  href="{{route('index-student')}}" >
           <i class="fas fa-users"></i>
