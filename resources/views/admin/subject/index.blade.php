@@ -81,6 +81,16 @@
                 })
        </script>
         @endif
+         <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+            <div class="input-group">
+              <input value="{{Request::get('keyword')}}" name="keyword" style="width: 400px" type="text" class="form-control bg- border-1 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+              <div class="input-group-append">
+                <button class="btn btn-primary" type="submit">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </form>
   <div class="card border">
   <div class="card-body">
         <a class="btn btn-primary"  href="{{route('create-subject')}}" >
@@ -105,10 +115,10 @@
       <td>{{ $subject->name}}</td>
       <td>{{ $subject->lecturer->name}}</td>
       <td>
-        <a class="btn btn-primary"  href="" ><i class="fas fa-edit"></i>
+        <a class="btn btn-primary"  href="{{route('edit-subject', $subject->id)}}" ><i class="fas fa-edit"></i>
           Edit
         </a>
-       <form  action="" method="post" class="form-check-inline">
+       <form  action="{{route('delete-subject', $subject->id)}}" method="post" class="form-check-inline">
               @csrf
               @method('DELETE')
               <button onclick="return confirm('Yakin Hapus Data Ini?')" class="btn btn-danger" type="submit "><i class="fas fa-trash"></i> Hapus</button>

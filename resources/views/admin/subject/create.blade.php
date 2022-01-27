@@ -77,9 +77,9 @@
             
            
             <button type="submit" class="btn btn-primary">Create</button>
-             {{-- <a class="btn btn-primary"  href="{{route('index-lecturer')}}" >
+             <a class="btn btn-primary"  href="{{route('index-subject')}}" >
           Kembali
-        </a> --}}
+        </a>
         </form>
   </div>
 </div>

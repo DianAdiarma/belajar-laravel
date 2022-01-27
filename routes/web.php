@@ -42,6 +42,9 @@ route::delete('student/delete/{id}', [StudentController::class, 'delete'])->name
 route::get('subject/create', [SubjectController::class, 'create'])->name('create-subject');
 route::post('subject/store', [SubjectController::class, 'store'])->name('store-subject');
 route::get('subject/index', [SubjectController::class, 'index'])->name('index-subject');
+route::put('subject/update/{id}', [SubjectController::class, 'update'])->name('update-subject');
+route::get('subject/edit/{id}', [SubjectController::class, 'edit'])->name('edit-subject');
+route::delete('subject/delete/{id}', [SubjectController::class, 'delete'])->name('delete-subject');
 
 //home
 Auth::routes();
